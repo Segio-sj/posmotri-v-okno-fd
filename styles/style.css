@@ -102,6 +102,7 @@ ol {
 .search-form__fieldset {
   border: none;
 }
+
 .search-form__fieldset-title {
   margin-bottom: 5px;
   font-weight: 400;
@@ -116,6 +117,7 @@ ol {
   background-color: transparent;
   font-family: inherit;
   font-size: inherit;
+  appearance: none;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   border-right: 1px solid transparent;
@@ -131,7 +133,7 @@ ol {
   outline: none;
 }
 
-.search-form__textfield:not(:active):focus-visible {
+.search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
   outline-offset: 2px;
 }
@@ -146,8 +148,9 @@ ol {
   font-size: 18px;
 }
 
-.search-form__label-text:hover {
-  box-shadow: inset 0 -2px white;
+.search-form__label:hover .search-form__label-text {
+  text-decoration-line: underline;
+  text-decoration-skip-ink: none;
 }
 
 .button {
@@ -157,12 +160,12 @@ ol {
   background-color: transparent;
   color: white;
   border: 1px solid #fff;
+  min-height: 34px;
 }
 
 .search-form__submit-button {
   margin-top: 20px;
   width: 194px;
-  height: 34px;
   font-weight: 700;
 }
 
@@ -218,10 +221,6 @@ ol {
   background-color: #FFFFFF;
 }
 
-.search-form__label:has(input[type="checkbox"]:focus-visible) {
-  outline: 1px solid #FFFFFF;
-}
-
 /* Контент блок */
 
 .content__details { 
@@ -243,6 +242,7 @@ ol {
 .content__accent {
   color: #545050;
 }
+
 .content__list-container {
   position: relative;
   padding: 0 3px 2px 2px;
@@ -265,6 +265,7 @@ ol {
   max-width: 196px;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .content__card-link {
@@ -273,8 +274,15 @@ ol {
   color: #FFFFFF;
 }
 
+.content__card-link:hover {
+  text-decoration-line: underline;
+  text-decoration-skip-ink: none;
+  cursor: pointer;
+}
+
 .content__card-link:focus {
   outline: none;
+  
 }
 
 .content__card-link:focus-visible {
@@ -287,8 +295,11 @@ ol {
 
 .content__video-card-description {           
   max-width: 196px;
-  overflow: hidden; 
-  text-overflow: ellipsis; 
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
 }
 
 .content__video-card {
@@ -298,12 +309,6 @@ ol {
 
 .content__video-card:active {
   background-color: #545050;
-}
-
-.content__video-card:hover {
-  text-decoration-line: underline;
-  text-decoration-skip-ink: none;
-  cursor: pointer;
 }
 
 .content__video-card-thumbnail {
@@ -320,5 +325,4 @@ ol {
 .more-button {
   margin-top: 30px;
   width: 100%;
-  height: 34px;
 }
