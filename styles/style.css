@@ -66,6 +66,7 @@ ol {
 
 .content {
   display: grid;
+  width: 100%;
   grid-template-columns: 711px 1fr;
   grid-template-areas:
   "result content__details";
