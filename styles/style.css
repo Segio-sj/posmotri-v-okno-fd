@@ -211,7 +211,7 @@ ol {
   position: relative;
 }
 
-.search-form__checkbox:checked + .search-form__pseudo-checkbox::after{
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
   content: "";
   min-inline-size: 15px;
   min-block-size: 15px;
