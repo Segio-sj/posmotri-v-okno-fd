@@ -72,15 +72,17 @@ ol {
 /* Блок с главным видео */
 
 .result {
+  max-width: 711px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
   grid-area: result;
 }
 
 .result__video-container {
+  position: relative;
   max-height: 386px;
-  margin-top: 78px; 
+  margin-top: 78px;
+  margin-bottom: 16px; 
 }
 
 .result__video {
@@ -94,17 +96,17 @@ ol {
 .search-form {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  gap: 15px;
 }
 
 .search-form__fieldset {
   border: none;
 }
 .search-form__fieldset-title {
+  margin-bottom: 5px;
   font-weight: 400;
   font-size: inherit;
   font-family: inherit;
-  margin-bottom: 7px;
 }
 
 .search-form__textfield {
@@ -134,38 +136,105 @@ ol {
   outline-offset: 2px;
 }
 
-.search-form__label-text {
-  font-weight: 400;
-  font-size: inherit;  
+.search-form fieldset:nth-of-type(2) {
+  max-width: 212px;
+  width: 100%;
 }
 
-.search-form__submit-button {
-  padding: 6px 73px;
-  font-weight: 700;
+.search-form__label-text {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.search-form__label-text:hover {
+  box-shadow: inset 0 -2px white;
+}
+
+.button {
   font-size: inherit;
   font-family: inherit;
+  font-weight: 700;
   background-color: transparent;
   color: white;
   border: 1px solid #fff;
 }
 
-.search-form__checkbox-list {
-  font-size: 1px;
+.search-form__submit-button {
+  margin-top: 20px;
+  width: 194px;
+  height: 34px;
+  font-weight: 700;
 }
+
+.button:active {
+  background-color: #545050;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+.button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.search-form__label {
+  display: flex;
+  align-items: center;
+}
+
+.search-form__label:hover {
+  cursor: pointer;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
 .search-form__pseudo-checkbox {
-  font-size: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inline-size: 18px;
+  block-size: 18px;
+  border: 1px solid #FFFFFF;
+  background-color: transparent;
+  margin-right: 5px;
+  position: relative;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after{
+  content: "";
+  min-inline-size: 15px;
+  min-block-size: 15px;
+  background-color: #FFFFFF;
+}
+
+.search-form__label:has(input[type="checkbox"]:focus-visible) {
+  outline: 1px solid #FFFFFF;
 }
 
 /* Контент блок */
 
 .content__details { 
   grid-area: content__details;
+  inline-size: 100%;
+  block-size: 100%;
+  max-inline-size: 399px;
 }
 
 .title {
   font-size: 75px;
   font-weight: 700;
-  line-height: 71px;
+  line-height: 70.5px;
   font-family: 'Oswald', Arial, Helvetica, sans-serif;
   text-transform: uppercase;
   margin-bottom: 26px;
@@ -175,9 +244,10 @@ ol {
   color: #545050;
 }
 .content__list-container {
-  max-height: 298px;
-  overflow-y: auto;
-  
+  position: relative;
+  padding: 0 3px 2px 2px;
+  block-size: 298px;
+  overflow: auto;
 }
 
 .content__list {
@@ -198,22 +268,42 @@ ol {
 }
 
 .content__card-link {
+  display: block;
   text-decoration: none;
   color: #FFFFFF;
 }
 
-.content__video-card-description {             
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #FFFFFF;
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
+
+.content__video-card-description {           
   max-width: 196px;
   overflow: hidden; 
   text-overflow: ellipsis; 
-  display: -webkit-box; 
-  -webkit-line-clamp: 4; 
-  -webkit-box-orient: vertical;
 }
 
 .content__video-card {
   display: flex;
   justify-content: space-between;
+}
+
+.content__video-card:active {
+  background-color: #545050;
+}
+
+.content__video-card:hover {
+  text-decoration-line: underline;
+  text-decoration-skip-ink: none;
+  cursor: pointer;
 }
 
 .content__video-card-thumbnail {
@@ -222,7 +312,14 @@ ol {
   object-fit: cover;
   object-position: center;
 }
+
 .content__video-card-description-container {
   flex-grow: 1;
+}
+
+.more-button {
+  margin-top: 30px;
+  width: 100%;
+  height: 34px;
 }
 
